@@ -1,4 +1,4 @@
-## **MagicSpoofing**
+## **MagicBloodHound**
 
 ### Project description
 A python3 script created to ingest data into BloodHound CE (Community Edition).
