@@ -143,15 +143,15 @@ json_files = get_json_files_in_directory(current_directory)
 
 token = login(host)
 for filename in json_files:
-    #try:
+    try:
 	    response = start_upload(filename, token, host)
 	    json_data = json.loads(response.text)
 	    uploaded_id = json_data["data"]["id"]
 	    response2 = upload_data(filename, token, uploaded_id, host)
 	    print ("[+] File " + str(filename) + " uploaded successfully! BloodHound is ingesting now :)")
 	    response3 = finish_upload_data(filename, token, uploaded_id, host)
-    #except:
-    #        print ("[-] File " + str(filename) + " can't be upload correctly. BloodHound is not analyzing data! :(")
+    except:
+            print ("[-] File " + str(filename) + " can't be upload correctly. BloodHound is not analyzing data! :(")
 
     
 os.system("rm -rf *_*.json")
